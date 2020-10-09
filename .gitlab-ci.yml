@@ -11,7 +11,7 @@ build:
     - main
   script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor --registry-mirror=dockerhub.vmatrix.org.cn --context=$CI_PROJECT_DIR --dockerfile=$CI_PROJECT_DIR/Dockerfile.test --cache=true --destination=$DOCKER_IMAGE_NAME
+    - /kaniko/executor --registry-mirror=dockerhub.vmatrix.org.cn --context=$CI_PROJECT_DIR --dockerfile=$CI_PROJECT_DIR/Dockerfile --cache=true --destination=$DOCKER_IMAGE_NAME
   tags: ["kubernetes"]
 
 deploy:
