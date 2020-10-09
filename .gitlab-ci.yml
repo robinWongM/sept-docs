@@ -1,6 +1,18 @@
 stages:
   - build
   - deploy
+  
+variables:
+  DOCKER_IMAGE_NAME: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHA}
+  DOCKER_IMAGE_REPOSITORY: ${CI_REGISTRY_IMAGE}
+  DOCKER_IMAGE_TAG: ${CI_COMMIT_SHA}
+  CACHE_REPO: ${CI_REGISTRY_IMAGE}/cache
+  HELM_EXPERIMENTAL_OCI: 1
+  DEPLOY_DOMAIN: sept
+  DEPLOY_CHART_NAME: common
+  DEPLOY_CHART_REGISTRY: docker.vmatrix.org.cn/matrix/infrastructure/charts
+  DEPLOY_CHART_TAG: latest
+  DEPLOY_CHART_URL: ${DEPLOY_CHART_REGISTRY}/${DEPLOY_CHART_NAME}:${DEPLOY_CHART_TAG}
 
 build:
   stage: build
@@ -27,10 +39,3 @@ deploy:
     url: https://sept.vmatrix.org.cn
     kubernetes:
       namespace: sept-wiki
-  variables:
-    HELM_EXPERIMENTAL_OCI: 1
-    DEPLOY_DOMAIN: sept
-    DEPLOY_CHART_NAME: common
-    DEPLOY_CHART_REGISTRY: docker.vmatrix.org.cn/matrix/infrastructure/charts
-    DEPLOY_CHART_TAG: latest
-    DEPLOY_CHART_URL: ${DEPLOY_CHART_REGISTRY}/${DEPLOY_CHART_NAME}:${DEPLOY_CHART_TAG}
