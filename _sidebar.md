@@ -6,6 +6,6 @@
 * [阶段三](/stage-3.md)
 * [参考改进的想法](/improvement.md)
 * [FAQ](/faq.md)
-  * [评价规范与申诉机制](/standard.md)
-  * [学习资料](/resources.md)
+* [评价规范与申诉机制](/standard.md)
+* [学习资料](/resources.md)
 * [评分表](/grading.md)

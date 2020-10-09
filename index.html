@@ -5,29 +5,42 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
   <!-- Theme: Defaults -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <link rel="stylesheet" title="light" href="/static/cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <link rel="stylesheet alternate" title="dark" href="/static/cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="https://matrix.sysu.edu.cn/">Matrix</a></li>
+      <li><a href="javascript:void(0)" data-link-title="auto">切换暗黑模式</a></li>
+    </ul>
+  </nav>
   <div id="app">Please wait...</div>
   <script>
     window.$docsify = {
       name: '中山大学软件工程初级实训文档',
       loadSidebar: true,
       homepage: 'introduction.md',
-      search: 'auto',
-      subMaxLevel: 2,
+      subMaxLevel: 3,
+      search: {
+        maxAge: 1000 * 60, // 1 min ttl
+        placeholder: '在文档中搜索',
+      },
       noCompileLinks: ['/static/.*'],
+      auto2top: true,
     }
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/docsify@4.js"></script>
   <!-- docsify-themeable (latest v0.x.x) -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-clike.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-makefile.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
-  <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/prismjs@1/components/prism-clike.min.js"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/prismjs@1/components/prism-makefile.min.js"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/docsify-copy-code.js"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="/static/cdn.jsdelivr.net/npm/docsify-tabs@1.js"></script>
+  <script src="/static/unpkg.com/docsify-plugin-flexible-alerts.js"></script>
+  <script src="/static/unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="/static/js/dynamic-theme.js"></script>
 </body>
 </html>
