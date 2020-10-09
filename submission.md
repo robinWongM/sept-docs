@@ -5,7 +5,7 @@
 关于 git 命令的更多使用资料，请参考 [学习资料](/resources.md)
 
 > [!NOTE|label:访问限制]
-> 本次实训代码的获取和提交**仅能在云桌面中进行**，请使用云桌面访问相关服务。
+> 本次实训代码的提交`push`**仅能在云桌面中进行**，请使用云桌面访问相关服务。
 >
 > 你可以在宿舍里使用自己的电脑登录云桌面完成实训任务，不一定需要到实验室。到实验室可以获得 TA 的面对面指导。
 
@@ -22,13 +22,13 @@
 我们已经准备好了 Agenda 项目所需的头文件，请同学们直接执行以下命令获取初始代码。 
 
 ```bash
-git clone https://matrix.sysu.edu.cn/git/用户名/agenda
+git clone https://matrix.sysu.edu.cn/git/用户名/agenda-2020
 ```
 
-git 服务器验证用户是你登录 Matrix 系统的账户密码。例如你的学号为 12345678，请执行 
+git 服务器验证用户是你登录 Matrix 系统的账户密码。例如你的学号为 20345678，请执行 
 
 ```bash
-git clone https://matrix.sysu.edu.cn/git/12345678/agenda
+git clone https://matrix.sysu.edu.cn/git/20345678/agenda-2020
 ```
 
 提示输入用户名和密码时直接输入你的 Matrix 账户密码。
@@ -81,6 +81,7 @@ git push origin [分支名]
 > 因此，请善用分支功能，在分支上进行开发，完成后再合并到主分支提交。
 
 评测使用的 Makefile 如下（$DEST 变量指的是最终生成的可执行文件的名字，你可以直接在 Makefile 里写死一个，也可以通过执行 `DEST=XXX make` 来临时指定一个）：
+
 ```makefile
 CC := g++
 FLAGS := -std=c++2a -w -g -pthread
@@ -127,9 +128,9 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 > 云桌面关闭后会清空每位同学云桌面中的内容，请注意及时推送代码到服务器上。否则，后果自负。
 
 ## 同步上游代码
-如果我们更改了头文件，或添加了其他文件，我们会在 [https://matrix.sysu.edu.cn/git/agenda](https://matrix.sysu.edu.cn/git/agenda) 这个仓库中更新，你可以直接 clone 这个仓库，然后将文件复制到自己的仓库中。或者在自己的仓库中采用以下的方式同步更新。
+如果我们更改了头文件，或添加了其他文件，我们会在 [https://matrix.sysu.edu.cn/git/agenda-2020](https://matrix.sysu.edu.cn/git/agenda-2020) 这个仓库中更新，你可以直接 clone 这个仓库，然后将文件复制到自己的仓库中。或者在自己的仓库中采用以下的方式同步更新。
 ```
-git remote add upstream https://matrix.sysu.edu.cn/git/agenda
+git remote add upstream https://matrix.sysu.edu.cn/git/agenda-2020
 git fetch upstream
 git checkout 你的开发分支或者主分支
 git merge upstream/master

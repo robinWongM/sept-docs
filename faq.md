@@ -1,6 +1,5 @@
 # FAQ
 
-<a name="0c89195a"></a>
 ## Date类说明
 1. 时间格式为“yyyy-mm-dd/hh:mm”。
 2. 默认构造函数构造一个年月日等都是0的Date类对象
@@ -10,9 +9,9 @@
 6. dateToString中，转换前需要检查日期是否合法，若不合法，直接返回“0000-00-00/00:00”。
 7. 比较操作中无需考虑日期不合法问题（不会针对此进行测试）。
 8. 以上提及的“合法”特指”逻辑上的合法”，与格式无关
-<a name="96c1e9e2"></a>
+
 ## Storage 类说明
-<a name="56e0d98c"></a>
+
 ### Storage 类中 `writeToFile` 和 `readFromFile` 操作的存储数据的两个文件的数据格式有什么要求呢？
 数据文件保存在工程目录的“data”文件夹下；另外，规定两个文件的数据格式要求如下：
 
@@ -23,22 +22,22 @@
 5. user.csv 文件中每条记录的格式是（引号为英文引号，相邻列间无空格分隔）： “username”,”password”,”email”,”phone” 一个用户名为 name,密码为 123，邮箱是 [123@123.com](mailto:123@123.com),手机是 123456 的记录在数据文件中的记录如下 “name”,“123”,“123@[123.com](http://123.com)”,“123456”
 6. meeting.csv 文件中每条记录的格式是（引号为英文引号，相邻列间无空格分隔，若有多个参与者，参与者之间使用“&”字符分隔）： ”sponsor”,”participators”,”startDate”,”endDate”,”title” 一个发起者为 A,参与者有 B 和 C，邮箱是开始时间是 2016-08-01/00:00，结束时间是 2016-08-01/12:00，标题为 meeting 的记录在数据文件中的记录如下： “A”,“B&C”,“2016-08-01/00:00”,“2016-08-01/12:00”,”meeting“
 7. 写入文件的格式中不包含数据项的名称
-<a name="4584e783"></a>
+
 ### 下面这个函数接口的 `filter` 和 `switcher` 是什么？
 ```
 int updateUser(std::function<bool(const User&)> filter, std::function<void(User&)> switcher);
 ```
 回答： `std::function`是`c++11` 里引入的，编译的时候需要加上参数`-std=c++11`。 从接口可以看出，`filter` 和 `switcher` 也就是函数 `updateUser` 的参数， 也是 `function` 模板类的一个实例；<br />就 `filter` 来说，`function<bool(const User&)>`指的是：`filter` 是一个返回值为 `bool`、参数为 `const User&` 的函数；而 `switcher` 就是：返回值为 `void`、参数为 `const User&` 的函数；至于这两个函数到底实现什么样的功能是由调用 `updateUser` 这个函数时传入的参数决定的;<br />可以把 `filter` 看成是一个过滤函数，当 `filter` 返回 `true` 时就对这个 `User` 进行 `switcher` 函数的操作； 在其他函数接口里面的 `filter` 也和上面讲的 `filter` 相似。
-<a name="5220f690"></a>
+
 ### `sync` 这个接口是用来干什么的？
 `sync`意思是同步，具体就是立即把保存在内存里的数据写入到文件，<br />防止文件数据的不一致（为什么？所有访问数据不都是通过 `Storage` 来访问的吗？怎么会不一致？答：那些文件是存储在电脑磁盘上的，其他程序也是可以打开那个文件来进行读写操作，为了防止其他程序读这个文件时数据的不一致，调用这个函数立即对文件进行写入来进行文件同步）<br />当`m_dirty`为真（数据被修改），调用`writeToFile`并置`m_dirty`为假即可。
-<a name="68672f05"></a>
+
 ### 本地测试时 `/tmp/meetings.csv `读写失败？
 机器测试时路径需为`Path::meetingPath`，而提供头文件中`Path::meetingPath`为`/tmp/meetings.csv`是评测需要，本地测试时修改为`data/meetings.csv`即可，`user.csv`同理。
-<a name="eee7ea0f"></a>
+
 ### `createMeeting` 等中是否需考虑需求文档中提及的各种限制？
 数据层不考虑业务逻辑层的事情，请学习“三层架构”。
-<a name="7944ad3b"></a>
+
 ## AgendaService 类说明
 
 1. 用户注册时，mail 和 phone 不需要判断唯一性和格式的正确性
@@ -53,7 +52,7 @@ int updateUser(std::function<bool(const User&)> filter, std::function<void(User&
 10. `deleteAllMeetings`时，若删除会议数量为0，返回true或false均可（不作测试）
 11. `startAgenda`、`quitAgenda`可自行设计（可以为空），保证应用能正常启动退出即可，不会对此测试。
 12. `removeMeetingParticipator`中，若指定要remove的对象不在该Meeting的participator中，返回false。
-<a name="b59b4a15"></a>
+
 ## 一些提醒
 
 1. 遇到RE错误的同学可以检查一下有没有“迭代器失效”的问题，例如一边遍历容器一边erase（这种场景建议使用remove_if）。另外，建议自己编写main函数，并用valgrind、gdb进行调试。
@@ -63,5 +62,5 @@ int updateUser(std::function<bool(const User&)> filter, std::function<void(User&
 5. Google Test给出的报错信息中，后面的句子是描述这个test case测试了哪些方面（不是说代码里有这些错误）
 6. 下面是Storage评测使用的测例之一（名字会包含空格）
 ```
-“Geralt of Rivia”,”Naked Snake&Lara Croft”,”2016-07-10/15:00”,”2016-07-10/18:00”,”Want a few rounds of Gwent?”
+"Geralt of Rivia","Naked Snake&Lara Croft","2016-07-10/15:00","2016-07-10/18:00","Want a few rounds of Gwent?"
 ```
