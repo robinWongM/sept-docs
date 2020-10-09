@@ -9,6 +9,7 @@ variables:
   CACHE_REPO: ${CI_REGISTRY_IMAGE}/cache
   HELM_EXPERIMENTAL_OCI: 1
   DEPLOY_DOMAIN: sept
+  DEPLOY_NAME: sept-wiki
   DEPLOY_CHART_NAME: common
   DEPLOY_CHART_REGISTRY: docker.vmatrix.org.cn/matrix/infrastructure/charts
   DEPLOY_CHART_TAG: latest
