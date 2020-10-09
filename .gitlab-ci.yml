@@ -1,0 +1,36 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image:
+    name: gcr.vmatrix.org.cn/kaniko-project/executor:debug-v1.2.0
+    entrypoint: [""]
+  only:
+    - main
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --registry-mirror=dockerhub.vmatrix.org.cn --context=$CI_PROJECT_DIR --dockerfile=$CI_PROJECT_DIR/Dockerfile.test --cache=true --destination=$DOCKER_IMAGE_NAME
+  tags: ["kubernetes"]
+
+deploy:
+  stage: deploy
+  image: dtzar/helm-kubectl
+  tags: ["kubernetes"]
+  only:
+    - main
+  script:
+    - sh k8s/deploy.sh
+  environment:
+    name: production
+    url: https://sept.vmatrix.org.cn
+    kubernetes:
+      namespace: sept-wiki
+  variables:
+    HELM_EXPERIMENTAL_OCI: 1
+    DEPLOY_DOMAIN: sept
+    DEPLOY_CHART_NAME: common
+    DEPLOY_CHART_REGISTRY: docker.vmatrix.org.cn/matrix/infrastructure/charts
+    DEPLOY_CHART_TAG: latest
+    DEPLOY_CHART_URL: ${DEPLOY_CHART_REGISTRY}/${DEPLOY_CHART_NAME}:${DEPLOY_CHART_TAG}
