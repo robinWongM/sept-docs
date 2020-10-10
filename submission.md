@@ -75,7 +75,6 @@ git push origin [分支名]
 > Matrix 没有提供代码浏览器，如果你想回退到某个版本请使用 git checkout 命令。  
 > 如需评测，你可以在题目页面点击提交按钮启动评测。评测系统会拉取各位 master 分支上指定 commit 的代码进行评测。
 
-
 > [!ATTENTION|label:不要提交没有完成的 cpp 文件]
 > 评测系统会编译 src 目录下的所有 cpp 文件，如果你提交了没做完的 cpp 会导致编译错误。但评测只会检查题目标注的类是否实现正确。  
 > 因此，请善用分支功能，在分支上进行开发，完成后再合并到主分支提交。
@@ -90,32 +89,19 @@ SRC_DIR := src
 BUILD_DIR := build
 BIN_DIR := bin
 TEST_DIR := test
-INCLUDE := -I./$(INC_DIR) 
+INCLUDE := -I./$(INC_DIR)
 TEST_LIBRARY := -lgtest -lgtest_main
+ 
 SOURCE_FILES=$(shell find $(SRC_DIR) -name '*.cpp')
 OBJS=$(patsubst $(SOURCE_FILES)/%.cpp,$(BUILD_DIR)/%.o,$(SOURCE_FILES))
+ 
 $(DEST): $(OBJS)
-	@mkdir -p $(BIN_DIR)
-	$(CC) $(FLAGS) $(INCLUDE) $^ -o $@ $(TEST_LIBRARY)
+    @mkdir -p $(BIN_DIR)
+    $(CC) $(FLAGS) $(INCLUDE) $^ -o $@ $(TEST_LIBRARY)
+ 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(BUILD_DIR)
-	$(CC) $(FLAGS) $(INCLUDE) -c -o $@ CC := g++
-FLAGS := -std=c++2a -w -g -pthread
-INC_DIR := include
-SRC_DIR := src
-BUILD_DIR := build
-BIN_DIR := bin
-TEST_DIR := test
-INCLUDE := -I./$(INC_DIR) 
-TEST_LIBRARY := -lgtest -lgtest_main
-SOURCE_FILES=$(shell find $(SRC_DIR) -name '*.cpp')
-OBJS=$(patsubst $(SOURCE_FILES)/%.cpp,$(BUILD_DIR)/%.o,$(SOURCE_FILES))
-$(DEST): $(OBJS)
-	@mkdir -p $(BIN_DIR)
-	$(CC) $(FLAGS) $(INCLUDE) $^ -o $@ $(TEST_LIBRARY)
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(BUILD_DIR)
-	$(CC) $(FLAGS) $(INCLUDE) -c -o $@ $<lt;
+    @mkdir -p $(BUILD_DIR)
+    $(CC) $(FLAGS) $(INCLUDE) -c -o $@ $<
 ```
 
 > [!TIP|label:可以推送其他分支]
@@ -129,7 +115,8 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 ## 同步上游代码
 如果我们更改了头文件，或添加了其他文件，我们会在 [https://matrix.sysu.edu.cn/git/agenda-2020](https://matrix.sysu.edu.cn/git/agenda-2020) 这个仓库中更新，你可以直接 clone 这个仓库，然后将文件复制到自己的仓库中。或者在自己的仓库中采用以下的方式同步更新。
-```
+
+```bash
 git remote add upstream https://matrix.sysu.edu.cn/git/agenda-2020
 git fetch upstream
 git checkout 你的开发分支或者主分支
