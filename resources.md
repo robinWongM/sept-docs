@@ -22,7 +22,9 @@
 
 [Google Test 简介与基本用法.pdf](/static/resources/common/gtest-installation.pdf)
 
-关于 Google Test 的安装，云桌面环境已经安装好了 Google Test 框架，你在编写 C++ 代码时可以直接通过 `#include <gtest/gtest.h>` 的方式导入 Google Test 头文件。<br />编译时需要链接 Google Test 的库，方法是在编译参数最末尾添加 -lgtest_main -lgtest，比如：
+关于 Google Test 的安装，云桌面环境已经安装好了 Google Test 框架，你在编写 C++ 代码时可以直接通过 `#include <gtest/gtest.h>` 的方式导入 Google Test 头文件。
+
+编译时需要链接 Google Test 的库，方法是在编译参数最末尾添加 -lgtest_main -lgtest，比如：
 ```bash
 g++ User.cpp Storage.cpp Date.cpp Meeting.cpp UserTest.cpp StorageTest.cpp -o unit_test -lgtest_main -lgtest -lpthread
 ```

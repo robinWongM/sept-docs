@@ -1,5 +1,9 @@
 # 文档变更记录
 
+## 2020/10/11
+
+* 11:15 - 修改侧边栏、[FAQ](/faq.md)、[介绍页面](/introduction.md)、[代码提交方式](/submission.md)、[改进建议](/improvement.md)
+
 ## 2020/10/10
 
 * 11:15 - 订正 [FAQ](/faq.md) 页面
