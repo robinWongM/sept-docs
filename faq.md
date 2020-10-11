@@ -1,5 +1,17 @@
 # FAQ
 
+## 提醒
+
+1. 遇到 Runtime Error 错误的同学可以检查一下有没有“迭代器失效”的问题，例如一边利用迭代器遍历容器，一边利用迭代器 erase（这种场景建议使用 remove_if）。
+2. 提交评测前请务必在本地确保编译通过（自己编写Makefile和 main 函数测试），以免白白浪费评测机会。
+3. 请注意不要在提交评测的 cpp 文件内包含 main 函数，否则评测无法正常执行。
+4. **NEVER INCLUDE CPP**，不要在任何文件内直接include cpp文件，如果因此不能通过编译，请自行学习有关分离编译并链接的知识。
+5. Google Test 给出的报错信息中，后面的句子是描述这个 test case 测试了哪些方面（不是说代码里有这些错误）
+6. 下面是 Storage 评测使用的测例之一（名字会包含空格）
+```
+"Geralt of Rivia","Naked Snake&Lara Croft","2016-07-10/15:00","2016-07-10/18:00","Want a few rounds of Gwent?"
+```
+
 ## Date 类说明
 1. 时间格式为 `yyyy-mm-dd/hh:mm`。
 2. 默认构造函数构造一个年月日等都是 0 的 `Date` 类对象。
@@ -30,7 +42,9 @@
 int updateUser(std::function<bool(const User&)> filter, std::function<void(User&)> switcher);
 ```
 `std::function`是`c++11` 里引入的，编译的时候需要加上参数`-std=c++11`。 从接口可以看出，`filter` 和 `switcher` 也就是函数 `updateUser` 的参数， 也是 `function` 模板类的一个实例；  
-就 `filter` 来说，`function<bool(const User&)>`指的是：`filter` 是一个返回值为 `bool`、参数为 `const User&` 的函数；而 `switcher` 就是：返回值为 `void`、参数为 `const User&` 的函数；至于这两个函数到底实现什么样的功能是由调用 `updateUser` 这个函数时传入的参数决定的;<br />可以把 `filter` 看成是一个过滤函数，当 `filter` 返回 `true` 时就对这个 `User` 进行 `switcher` 函数的操作； 在其他函数接口里面的 `filter` 也和上面讲的 `filter` 相似。
+就 `filter` 来说，`function<bool(const User&)>`指的是：`filter` 是一个返回值为 `bool`、参数为 `const User&` 的函数；而 `switcher` 就是：返回值为 `void`、参数为 `const User&` 的函数；至于这两个函数到底实现什么样的功能是由调用 `updateUser` 这个函数时传入的参数决定的;
+
+可以把 `filter` 看成是一个过滤函数，当 `filter` 返回 `true` 时就对这个 `User` 进行 `switcher` 函数的操作； 在其他函数接口里面的 `filter` 也和上面讲的 `filter` 相似。
 
 ### `sync` 这个接口是用来干什么的？
 `sync`意思是同步，具体就是立即把保存在内存里的数据写入到文件，防止文件数据的不一致  
@@ -57,15 +71,3 @@ int updateUser(std::function<bool(const User&)> filter, std::function<void(User&
 10. `deleteAllMeetings` 时，若删除会议数量为 0，返回 `true` 或 `false` 均可（不作测试）。
 11. `startAgenda`、`quitAgenda` 可自行设计（可以为空），保证应用能正常启动退出即可，不会对此测试。
 12. `removeMeetingParticipator` 中，若指定要 remove 的对象不在该 Meeting 的 participator 中，返回 `false`。
-
-## 一些提醒
-
-1. 遇到 RE 错误的同学可以检查一下有没有“迭代器失效”的问题，例如一边遍历容器一边 erase（这种场景建议使用 remove_if）。另外，建议自己编写 main 函数，并用 valgrind、gdb 进行调试。
-2. 提交评测前务必在本地确保编译通过（自己编写一个 main 函数测试），以免白白浪费评测机会。
-3. 遇到 Malicious code 的同学，请不要在进行评测的 cpp 文件内写 main 函数，否则评测无法正常执行。
-4. **NEVER INCLUDE CPP**
-5. Google Test 给出的报错信息中，后面的句子是描述这个 test case 测试了哪些方面（不是说代码里有这些错误）
-6. 下面是 Storage 评测使用的测例之一（名字会包含空格）
-```
-"Geralt of Rivia","Naked Snake&Lara Croft","2016-07-10/15:00","2016-07-10/18:00","Want a few rounds of Gwent?"
-```

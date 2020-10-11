@@ -1,12 +1,16 @@
 # 阶段一
 
-根据需求和 UML 设计编写高质量的底层程序。本阶段除交叉检查外，其余均皆为个人任务。<br />提醒，这个阶段所有的参考文档（makefile, linux, CSV+rfc）请到查看
+根据需求和 UML 设计编写高质量的底层程序。本阶段除交叉检查外，其余均皆为个人任务。
+
+提醒，这个阶段所有的参考文档（makefile, linux, CSV+rfc）请到查看
 
 ## 制品
 完成 Date 类，User 类，Meeting 类，Storage类
 
 ## 步骤
-**请留意每个 Task 前后的文档更新！**<br />**请不要对头文件进行任何改动**
+**请留意每个 Task 前后的文档更新！**
+
+**请不要对头文件进行任何改动**
 
 ### Task 1：项目启动准备
 
@@ -56,7 +60,9 @@
 ### Task 2.2：识别会议类属性并给出程序
 
 #### task 过程相关文档
-[meeting_class_diagram.pdf](/static/resources/stage-1/meeting_class_diagram.pdf)（注意：meeting类的成员函数和属性有删改，以头文件为准）<br />相关代码：include/Meeting.hpp include/Date.hpp
+[meeting_class_diagram.pdf](/static/resources/stage-1/meeting_class_diagram.pdf)（注意：meeting类的成员函数和属性有删改，以头文件为准）
+
+相关代码：include/Meeting.hpp include/Date.hpp
 
 > [!NOTE|label:对于会议时间显示的额外补充]
 > 1. 时间格式为`yyyy-mm-dd/hh:mm`（年的范围是 1000 ~ 9999）
@@ -124,7 +130,9 @@
 
 #### 知识与技能
 
-- 将UML设计图转化为代码<br />* STL编程
+- 将UML设计图转化为代码
+
+* STL编程
 - C++ 11 编程
 
 ### Task3.2：管理实体数据
@@ -152,7 +160,11 @@
 ### Task3.3：持久化实体数据
 
 #### Task 过程相关文档
-Agenda数据文件格式要求（CSV 及RFC标准）：[https://en.wikipedia.org/wiki/Comma-separated_values](https://en.wikipedia.org/wiki/Comma-separated_values)<br />相关代码：include/Storage.hpp include/Path.hpp<br />说明文档：[storage.pdf](/static/resources/stage-1/storage.pdf)
+Agenda数据文件格式要求（CSV 及RFC标准）：[https://en.wikipedia.org/wiki/Comma-separated_values](https://en.wikipedia.org/wiki/Comma-separated_values)
+
+相关代码：include/Storage.hpp include/Path.hpp
+
+说明文档：[storage.pdf](/static/resources/stage-1/storage.pdf)
 
 #### 具体要求
 
@@ -203,4 +215,6 @@ python cpplint.py --filter=-legal/copyright,-build/header_guard,-build/include,-
 请确保您所使用的 python 版本为 2.x.x，检查命令为 `python --version`
 
 ## 阶段结束
-及格的成员进入下一阶段，不及格的成员根据 TA 意见进行整改，获得 TA 许可后方可进入下一阶段，保留整改前的成绩。<br />代码部分的任务则需要在matrix中题目提交截止时间之前提交到系统，注意：系统到期自动测试，逾时不收。
+及格的成员进入下一阶段，不及格的成员根据 TA 意见进行整改，获得 TA 许可后方可进入下一阶段，保留整改前的成绩。
+
+代码部分的任务则需要在matrix中题目提交截止时间之前提交到系统，注意：系统到期自动测试，逾时不收。

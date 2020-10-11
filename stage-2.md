@@ -19,7 +19,9 @@
 ### Task 1：根据需求，实现应用程序功能逻辑设计
 
 #### task 过程相关文档
-回忆阶段1的第一个任务，仔细阅读需求。<br />代码文件：include/AgendaService.hpp
+回忆阶段1的第一个任务，仔细阅读需求。
+
+代码文件：include/AgendaService.hpp
 
 #### 具体要求
 思考应用程序的功能以及在Storage的基础上的实现
@@ -62,11 +64,27 @@
 - 自行编写 src/Agenda.cpp 文件，该文件需要提供整个Agenda工程的main函数，综合之前所有的代码工作，将其整合成一个真正可运行的简单的Agenda系统
 
 ## Agenda接口约束
-编写一个基于命令行交互方式的应用程序来访问议程管理系统中的信息。<br />**请严格按照接口约束进行输入.**<br />[agendaui基础约束.pdf](https://old-wiki.vmatrix.org.cn/lib/exe/fetch.php?media=%E9%98%B6%E6%AE%B5%E4%BA%8C:agendaui%E5%9F%BA%E7%A1%80%E7%BA%A6%E6%9D%9F.pdf)<br />
-<br />[ui_testcases.txt](/static/resources/stage-2/ui_testcases.txt)
+编写一个基于命令行交互方式的应用程序来访问议程管理系统中的信息。
+
+**请严格按照接口约束进行输入.**
+
+[agendaui基础约束.pdf](https://old-wiki.vmatrix.org.cn/lib/exe/fetch.php?media=%E9%98%B6%E6%AE%B5%E4%BA%8C:agendaui%E5%9F%BA%E7%A1%80%E7%BA%A6%E6%9D%9F.pdf)
+
+
+[ui_testcases.txt](/static/resources/stage-2/ui_testcases.txt)
 
 ## 拓展阅读
-[Unit Testing Guidelines](http://geosoft.no/development/unittesting.html)<br />[Unit Testing Guidelines(ZH-CN)](https://github.com/yangyubo/zh-unit-testing-guidelines)<br />[Twelve Benefits of Writing Unit Tests First](http://sd.jtimothyking.com/2006/07/11/twelve-benefits-of-writing-unit-tests-first/)
+[Unit Testing Guidelines](http://geosoft.no/development/unittesting.html)
+
+[Unit Testing Guidelines(ZH-CN)](https://github.com/yangyubo/zh-unit-testing-guidelines)
+
+[Twelve Benefits of Writing Unit Tests First](http://sd.jtimothyking.com/2006/07/11/twelve-benefits-of-writing-unit-tests-first/)
 
 ## 阶段结束
-及格的成员进入下一阶段，不及格的成员根据 TA 意见进行整改，获得 TA 许可后方可进入下一阶段，保留整改前的成绩。<br />AgendaService代码部分的任务则需要matrix评测系统上对于题目的截止时间前提交，注意：计算机自动测试，逾时不收。<br />AgendaUI部分的任务需要TA在规定deadline之前实地检查运行情况，根据TA规范手册打分，逾时不接受检查。<br />
+及格的成员进入下一阶段，不及格的成员根据 TA 意见进行整改，获得 TA 许可后方可进入下一阶段，保留整改前的成绩。
+
+AgendaService代码部分的任务则需要matrix评测系统上对于题目的截止时间前提交，注意：计算机自动测试，逾时不收。
+
+AgendaUI部分的任务需要TA在规定deadline之前实地检查运行情况，根据TA规范手册打分，逾时不接受检查。
+
+
